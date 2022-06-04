@@ -40,9 +40,10 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     let playerSelection;
+    console.log('Rock, Paper, Scissors Game')
     for (let i = 0; i < rounds; i++) {
         console.log(`Round ${i+1} (Current Score: ${playerScore}-${computerScore})`)
-        playerSelection = prompt("Choose your weapon: ")
+        playerSelection = prompt("Choose rock, paper, or scissors: ")
         while (!options.includes(playerSelection.toLowerCase())) {
             playerSelection = prompt("Invalid Option. Choose your weapon: ")
         }
