@@ -24,12 +24,23 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
+function getWinner(playerScore, computerScore, rounds) {
+    console.log(`Final Score: ${playerScore}-${computerScore}`)
+    if (playerScore >= rounds/2) 
+        return "You won, congrats!"
+    else if (playerScore == computerScore)
+        return "You tied against the computer!"
+    else 
+        return "You lose, better luck next time!"
+}
+
 
 function game() {
+    const rounds = 5;
     let playerScore = 0;
     let computerScore = 0;
     let playerSelection;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < rounds; i++) {
         console.log(`Round ${i+1} (Current Score: ${playerScore}-${computerScore})`)
         playerSelection = prompt("Choose your weapon: ")
         while (!options.includes(playerSelection.toLowerCase())) {
@@ -41,14 +52,9 @@ function game() {
         else if (result.substring(0, 8) == 'You Lose')
             computerScore +=1
         console.log(result)
+        console.log('-----------------------------------')
     }
-    console.log(`Final Score: ${playerScore}-${computerScore}`)
-    if (playerScore >= 3) 
-        return "You won, congrats!"
-    else if (playerScore == computerScore)
-        return "You tied against the computer!"
-    else 
-        return "You lose, better luck next time!"
+    console.log(getWinner(playerScore, computerScore, rounds))
 }
 
-console.log(game())
+game()
