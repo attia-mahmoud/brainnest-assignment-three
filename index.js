@@ -24,9 +24,9 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function getWinner(playerScore, computerScore, rounds) {
+function getWinner(playerScore, computerScore) {
     console.log(`Final Score: ${playerScore}-${computerScore}`)
-    if (playerScore >= rounds/2) 
+    if (playerScore > computerScore) 
         return "You won, congrats!"
     else if (playerScore == computerScore)
         return "You tied against the computer!"
@@ -54,7 +54,7 @@ function game() {
         console.log(result)
         console.log('-----------------------------------')
     }
-    console.log(getWinner(playerScore, computerScore, rounds))
+    console.log(getWinner(playerScore, computerScore))
 }
 
 game()
